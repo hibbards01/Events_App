@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.TabHost;
 import android.content.Intent;
+import android.widget.TextView;
 
 
 public class MainActivity extends TabActivity {
@@ -43,7 +44,15 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(tab2);
         tabHost.addTab(tab3);
         tabHost.addTab(tab4);
-        //tabHost.setBackgroundColor(getResources().getColor(R.color.blue));
+
+        //now change the indicator color!
+        for(int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
+            TextView textView = (TextView)tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
+            textView.setTextColor(getResources().getColor(R.color.white));
+            textView.setTextSize(15);
+        }
+
+        tabHost.setCurrentTab(1);
 
         /*if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
