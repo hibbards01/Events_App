@@ -1,12 +1,12 @@
 package com.eventsproject.byuievents;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MonthActivity extends Activity {
+public class MonthActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
