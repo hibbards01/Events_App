@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 import android.widget.TabHost;
 import android.content.Intent;
 import android.widget.TextView;
-
 
 public class MainActivity extends TabActivity {
 
@@ -54,6 +54,7 @@ public class MainActivity extends TabActivity {
 
         tabHost.setCurrentTab(1);
 
+
         /*if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -66,8 +67,33 @@ public class MainActivity extends TabActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem searchBar = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView)searchBar.getActionView();
+        searchView.setQueryHint("Search");
+
+        //now for the textview!
+
+        int searchPlateId = searchView.getContext().getResources().getIdentifier("android:id/search_plate", null, null);
+        View searchPlate = searchView.findViewById(searchPlateId);
+
+
+        if (searchPlate!=null) {
+            searchPlate.setBackgroundColor(getResources().getColor(R.color.darkgray));
+
+            int searchTextId = searchPlate.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+            TextView searchText = (TextView) searchPlate.findViewById(searchTextId);
+
+            if (searchText!=null) {
+                searchText.setTextColor(getResources().getColor(R.color.white));
+                searchText.setHintTextColor(getResources().getColor(R.color.white));
+                searchText.setTextSize(15);
+            }
+        }
+
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

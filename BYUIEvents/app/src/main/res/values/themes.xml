@@ -5,38 +5,21 @@
         parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="android:textSize">10sp</item>
-        <item name="android:tabWidgetStyle">@style/TabTheme</item>
     </style>
 
     <!-- ActionBar styles -->
     <style name="MyActionBar"
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">#0000FF</item>
+        <item name="android:height">50dp</item>
         <item name="android:titleTextStyle">@style/TitleTheme</item>
     </style>
 
     <!-- Title Size -->
     <style name="TitleTheme"
         parent="@android:style/Widget.TextView">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
-
-    <!-- Tab Theme -->
-
-    <!-- Tab Text Style -->
-    <style name = "TabTheme" >
-        <item name="android:textAppearance">@style/TabTextStyle</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:singleLine">true</item>
-    </style>
-
-    <style name="TabTextStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabText">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:gravity">fill_horizontal</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
 
 </resources>
