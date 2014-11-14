@@ -1,6 +1,5 @@
 package com.eventsproject.byuievents;
 
-import android.app.Activity;
 import android.app.TabActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +13,12 @@ import android.widget.TextView;
 
 public class MainActivity extends TabActivity {
 
+    /**
+     * ONCREATE
+     *  This is when the application is first started.
+     *      It will also create the tabs.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
