@@ -12,12 +12,6 @@
         android:text="@+id/label"
         android:textSize="20sp" />
 
-<<<<<<< HEAD:app/src/main/res/layout/activity_day.xml
-</LinearLayout>
-=======
-    <ListView android:id="@android:id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-</RelativeLayout>
->>>>>>> 9b1fd99f808d8f9e84280a86fb106053cf7096a1:Events_App/app/src/main/res/layout/activity_day.xml
+</LinearLayout>
+

@@ -12,12 +12,7 @@ public class DayActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD:app/src/main/java/com/eventsproject/byuievents/DayActivity.java
-=======
- //       setContentView(R.layout.activity_day);
-    }
-
->>>>>>> 9b1fd99f808d8f9e84280a86fb106053cf7096a1:Events_App/app/src/main/java/com/eventsproject/byuievents/DayActivity.java
+        setContentView(R.layout.activity_day);
 
         String [] list = new String[] {
                 "Linux Meeting", "Career Fair", "I-Connect", "Game Night",
