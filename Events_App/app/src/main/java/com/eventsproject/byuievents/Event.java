@@ -1,5 +1,9 @@
 package com.eventsproject.byuievents;
 
+import java.util.Date;
+import java.util.Calendar;
+import java.util.Map;
+
 /**
  * EVENT
  *  This will contain all the information for the event
@@ -9,9 +13,9 @@ public class Event {
     /*
      * MEMBER VARIABLES
      */
-    private String date;
+    private Calendar date;
     private String location;
-    private String name;
+    private String title;
 
     /*
      * MEMBER METHODS
@@ -23,16 +27,27 @@ public class Event {
      * @param name
      * @param location
      */
-    Event(String date, String name, String location) {
-        this.date = date;
+    public Event(Map<String, Integer> date, String name, String location) {
+        this.date = Calendar.getInstance();
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        int hourOfDay = 0;
+        int minute = 0;
+        int second = 0;
+
+        for (Map.Entry datePart : date.entrySet()) {
+
+        }
+        this.date.set(year, month, day, hourOfDay, minute, second);
         this.location = location;
-        this.name = name;
+        this.title = name;
     }
 
     /**
      * GETTERS
      */
-    public String getDate() {
+    public Calendar getDate() {
         return date;
     }
 
@@ -41,13 +56,13 @@ public class Event {
     }
 
     public String getName() {
-        return name;
+        return title;
     }
 
     /**
      * SETTERS
      */
-    public void setDate(String newDate) {
+    public void setDate(Calendar newDate) {
         date = newDate;
     }
 
@@ -56,6 +71,6 @@ public class Event {
     }
 
     public void setName(String newName) {
-        name = newName;
+        title = newName;
     }
 }
