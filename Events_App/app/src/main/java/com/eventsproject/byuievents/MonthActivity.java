@@ -12,7 +12,6 @@ public class MonthActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_month);
 
         String [] list = new String[] {
                 "Linux Meeting", "Career Fair", "I-Connect", "Game Night",
