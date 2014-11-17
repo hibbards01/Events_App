@@ -4,6 +4,7 @@ import android.app.TabActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -12,6 +13,14 @@ import android.content.Intent;
 import android.widget.TextView;
 
 public class MainActivity extends TabActivity {
+    /*
+     * MEMBER VARIABLES
+     */
+    private Menu menu; //save the menu
+
+    /*
+     * MEMBER METHODS
+     */
 
     /**
      * ONCREATE
@@ -68,11 +77,18 @@ public class MainActivity extends TabActivity {
         }*/
     }
 
-
+    /**
+     * ONCREATEOPTIONSMENU
+     *  Create the options menu!
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        this.menu = menu;
 
         MenuItem searchBar = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView)searchBar.getActionView();
@@ -100,7 +116,12 @@ public class MainActivity extends TabActivity {
         return true;
     }
 
-
+    /**
+     * ONOPTIONSITEMSELECTED
+     *  What item was selected in the menu!
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -108,12 +129,66 @@ public class MainActivity extends TabActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id) {
+            case R.id.action_settings:
+                Toast.makeText(this, "Running settings", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.action_search:
+                Toast.makeText(this, "Running search", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.filter_activities_complete:
+            case R.id.filter_activities_life_skills:
+            case R.id.filter_activities_social:
+            case R.id.filter_activities_sports:
+            case R.id.filter_activities_talent:
+            case R.id.filter_activities_wellness:
+            case R.id.filter_alumni_or_reunion:
+            case R.id.filter_broadcast_conference:
+            case R.id.filter_concert:
+            case R.id.filter_conference_workshop:
+            case R.id.filter_devo_speeches:
+            case R.id.filter_get_connected:
+            case R.id.filter_graduation:
+            case R.id.filter_performance_events:
+            case R.id.filter_performing_visual_arts:
+            case R.id.filter_reception_openhouse:
+            case R.id.filter_reception_public:
+            case R.id.filter_theatre: {
+                if (item.isChecked()) {
+                    item.setChecked(false);
+                } else {
+                    item.setChecked(true);
+                }
+                return true;
+            }
+            case R.id.action_clear_filters: {
+                unCheckBoxes();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    /**
+     * UNCHECKBOXES
+     *  Uncheck all the boxes.
+     */
+    public void unCheckBoxes() {
+        //now go thru all the items in the menu!
+        MenuItem item = menu.getItem(0);
+        SubMenu sub = item.getSubMenu();
+        int num = sub.size();
+        //now loop thru each item!
+        for (int i = 0; i < num - 1; i++) {
+            //now grab it!
+            MenuItem grabItem = sub.getItem(i);
+            //now check it...
+            if (grabItem.isChecked()) {
+                //and change it back to false!
+                grabItem.setChecked(false);
+            }
+        }
     }
 
     /**
@@ -131,13 +206,4 @@ public class MainActivity extends TabActivity {
             return rootView;
         }
     }*/
-
-    /**
-     * WEEKACTIVITY
-     *  This will create an intent and run the WeekActivity class
-     * @param view
-     */
-    public void weekActivity(View view) {
-        Toast.makeText(this, "You are almost there!", Toast.LENGTH_LONG).show();
-    }
 }
