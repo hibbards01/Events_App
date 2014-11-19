@@ -11,12 +11,14 @@ import android.widget.Toast;
 import android.widget.TabHost;
 import android.content.Intent;
 import android.widget.TextView;
+import android.util.Log;
 
 public class MainActivity extends TabActivity {
     /*
      * MEMBER VARIABLES
      */
     private Menu menu; //save the menu
+    private SQLDataBase dataBaseHome;
 
     /*
      * MEMBER METHODS
@@ -69,7 +71,9 @@ public class MainActivity extends TabActivity {
 
         tabHost.setCurrentTab(1);
 
-
+        //call the constructor for the database!
+        Log.d("SQL", "HERE!");
+        dataBaseHome = new SQLDataBase();
         /*if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
