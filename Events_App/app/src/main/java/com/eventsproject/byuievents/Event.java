@@ -10,67 +10,97 @@ import java.util.Map;
  * Created by SamuelHibbard on 11/11/14.
  */
 public class Event {
-    /*
-     * MEMBER VARIABLES
-     */
-    private Calendar date;
-    private String location;
-    private String title;
-
-    /*
-     * MEMBER METHODS
-     */
+    private EventRequiredInfo eventRequiredInfo;
+    private EventOptionalInfo eventOptionalInfo;
 
     /**
      * CONSTRUCTOR
-     * @param date
-     * @param name
-     * @param location
+     * @param eventRequiredInfo
+     * @param eventOptionalInfo
      */
-    public Event(Map<String, Integer> date, String name, String location) {
-        this.date = Calendar.getInstance();
-        int year = 0;
-        int month = 0;
-        int day = 0;
-        int hourOfDay = 0;
-        int minute = 0;
-        int second = 0;
-
-        for (Map.Entry datePart : date.entrySet()) {
-
-        }
-        this.date.set(year, month, day, hourOfDay, minute, second);
-        this.location = location;
-        this.title = name;
+    public Event(EventRequiredInfo eventRequiredInfo, EventOptionalInfo eventOptionalInfo) {
+        this.eventRequiredInfo = eventRequiredInfo;
+        this.eventOptionalInfo = eventOptionalInfo;
     }
 
     /**
-     * GETTERS
+     * Returns the eventRequiredInfo
+     * @return EventRequiredInfo eventRequiredInfo
      */
-    public Calendar getDate() {
-        return date;
+    public EventRequiredInfo getEventRequiredInfo() {
+        return eventRequiredInfo;
     }
 
-    public String getLocation() {
-        return location;
+    /**
+     * Sets the eventRequiredInfo
+     * @param eventRequiredInfo new eventRequiredInfo
+     */
+    public void setEventRequiredInfo(EventRequiredInfo eventRequiredInfo) {
+        this.eventRequiredInfo = eventRequiredInfo;
     }
 
+    /**
+     * Returns the name of the event.
+     * @return String name
+     */
     public String getName() {
-        return title;
+        return this.eventRequiredInfo.getName();
     }
 
     /**
-     * SETTERS
+     * Returns the startTime of the event
+     * @return String startTime
      */
-    public void setDate(Calendar newDate) {
-        date = newDate;
+    public String getStartTime() {
+        return this.eventRequiredInfo.getStartTime();
     }
 
-    public void setLocation(String newLocation) {
-        location = newLocation;
+    /**
+     * Returns the endTime of the event
+     * @return String endTime
+     */
+    public String getEndTime() {
+        return this.eventRequiredInfo.getEndTime();
     }
 
-    public void setName(String newName) {
-        title = newName;
+    /**
+     * Returns the location of the event
+     * @return String location
+     */
+    public String getLocation() {
+        return this.eventRequiredInfo.getLocation();
     }
+
+    /**
+     * Returns the date of the event
+     * @return String date
+     */
+    public String getDate() {
+        return this.eventRequiredInfo.getDate();
+    }
+
+    /**
+     * Returns the eventOptionalInfo
+     * @return EventOptionalInfo eventOptionalInfo
+     */
+    public EventOptionalInfo getEventOptionalInfo() {
+        return eventOptionalInfo;
+    }
+
+    /**
+     * Sets the eventOptionalInfo
+     * @param eventOptionalInfo new eventOptionalInfo
+     */
+    public void setEventOptionalInfo(EventOptionalInfo eventOptionalInfo) {
+        this.eventOptionalInfo = eventOptionalInfo;
+    }
+
+    /**
+     * Returns the description of the event
+     * @return String description
+     */
+    public String getDescription() {
+        return this.eventOptionalInfo.getDescription();
+    }
+
 }
